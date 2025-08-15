@@ -38,7 +38,7 @@ Hi! My name is Oliver McCourt
         </div>
     </a>
     <a href="{{site.baseurl}}/turtle" style="text-decoration: none;">
-        <div style="background-color: #FF0000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        <div style="background-color: #ae00ffff; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Turtle
         </div>
     </a>
