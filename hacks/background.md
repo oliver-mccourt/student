@@ -10,13 +10,17 @@ permalink: /background
 <canvas id="world"></canvas>
 
 <script>
+  // Get canvas and context
   const canvas = document.getElementById("world");
   const ctx = canvas.getContext('2d');
+
+  // Load background and sprite images
   const backgroundImg = new Image();
   const spriteImg = new Image();
   backgroundImg.src = '{{page.background}}';
   spriteImg.src = '{{page.sprite}}';
 
+  // Track image loading
   let imagesLoaded = 0;
   backgroundImg.onload = function() {
     imagesLoaded++;
@@ -27,9 +31,11 @@ permalink: /background
     startGameWorld();
   };
 
+  // Start game only after both images are loaded
   function startGameWorld() {
     if (imagesLoaded < 2) return;
 
+    // Base class for all game objects
     class GameObject {
       constructor(image, width, height, x = 0, y = 0, speedRatio = 0) {
         this.image = image;
@@ -40,26 +46,30 @@ permalink: /background
         this.speedRatio = speedRatio;
         this.speed = GameWorld.gameSpeed * this.speedRatio;
       }
-      update() {}
+      update() {} // To be overridden
       draw(ctx) {
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
       }
     }
 
+    // Background class for scrolling effect
     class Background extends GameObject {
       constructor(image, gameWorld) {
         // Fill entire canvas
         super(image, gameWorld.width, gameWorld.height, 0, 0, 0.1);
       }
       update() {
+        // Move background to the left, loop when off screen
         this.x = (this.x - this.speed) % this.width;
       }
       draw(ctx) {
+        // Draw two images for seamless scrolling
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
         ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
       }
     }
 
+    // Player class with floating animation
     class Player extends GameObject {
       constructor(image, gameWorld) {
         const width = image.naturalWidth / 2;
@@ -71,13 +81,15 @@ permalink: /background
         this.frame = 0;
       }
       update() {
+        // Animate up and down using sine wave
         this.y = this.baseY + Math.sin(this.frame * 0.05) * 20;
         this.frame++;
       }
     }
 
+    // Main game world class
     class GameWorld {
-      static gameSpeed = 5;
+      static gameSpeed = 5; // Controls overall speed
       constructor(backgroundImg, spriteImg) {
         this.canvas = document.getElementById("world");
         this.ctx = this.canvas.getContext('2d');
@@ -91,12 +103,14 @@ permalink: /background
         this.canvas.style.left = `0px`;
         this.canvas.style.top = `${(window.innerHeight - this.height) / 2}px`;
 
+        // Add background and player to game objects
         this.gameObjects = [
          new Background(backgroundImg, this),
          new Player(spriteImg, this)
         ];
       }
       gameLoop() {
+        // Clear canvas and update/draw all objects
         this.ctx.clearRect(0, 0, this.width, this.height);
         for (const obj of this.gameObjects) {
           obj.update();
@@ -109,6 +123,8 @@ permalink: /background
       }
     }
 
+    // Initialize and start the game world
     const world = new GameWorld(backgroundImg, spriteImg);
     world.start();
   }
+</script>
