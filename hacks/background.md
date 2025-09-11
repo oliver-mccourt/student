@@ -2,7 +2,7 @@
 layout: base
 title: Background with Object
 description: Use JavaScript to have an in motion background.
-sprite: images/platformer/sprites/flying-ufo.png
+sprite: images/platformer/sprites/jellyfish.png
 background: images/platformer/backgrounds/water.png
 permalink: /background
 ---
