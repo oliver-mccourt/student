@@ -1,0 +1,15 @@
+{
+  "name": "car-blog-web",
+  "version": "1.0.0",
+  "description": "A web project where a car sprite drives down a road background with buildings that reveal buttons for blog links when the car stops.",
+  "main": "src/scripts/app.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step not defined'"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

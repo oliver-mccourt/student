@@ -1,0 +1,22 @@
+[
+  {
+    "title": "How to Set Up a Local Development Environment",
+    "url": "https://example.com/setup-local-dev"
+  },
+  {
+    "title": "Understanding JavaScript Promises",
+    "url": "https://example.com/javascript-promises"
+  },
+  {
+    "title": "CSS Flexbox Guide",
+    "url": "https://example.com/css-flexbox"
+  },
+  {
+    "title": "Building Responsive Websites",
+    "url": "https://example.com/responsive-websites"
+  },
+  {
+    "title": "Introduction to React",
+    "url": "https://example.com/introduction-to-react"
+  }
+]
