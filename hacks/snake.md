@@ -297,28 +297,38 @@ permalink: /snake/
             addFood();
             // activate canvas event
             canvas.onkeydown = function(evt) {
-                changeDir(evt.keyCode);
+                // pass either keyCode (arrow keys) or key (letters) to changeDir
+                changeDir(evt.keyCode ? evt.keyCode : evt.key);
             }
             mainLoop();
         }
         /* Key Inputs and Actions */
         /////////////////////////////////////////////////////////////
         let changeDir = function(key){
+            // Accept arrow key codes (numbers) or WASD letters (strings).
+            if (typeof key === 'string') {
+                const k = key.toLowerCase();
+                if (k === 'a') key = 37;
+                else if (k === 'w') key = 38;
+                else if (k === 'd') key = 39;
+                else if (k === 's') key = 40;
+                else return; // ignore other keys
+            }
             // test key and switch direction
             switch(key) {
-                case 37:    // left arrow
+                case 37:    // left arrow / A
                     if (snake_dir !== 1)    // not right
                         snake_next_dir = 3; // then switch left
                     break;
-                case 38:    // up arrow
+                case 38:    // up arrow / W
                     if (snake_dir !== 2)    // not down
                         snake_next_dir = 0; // then switch up
                     break;
-                case 39:    // right arrow
+                case 39:    // right arrow / D
                     if (snake_dir !== 3)    // not left
                         snake_next_dir = 1; // then switch right
                     break;
-                case 40:    // down arrow
+                case 40:    // down arrow / S
                     if (snake_dir !== 0)    // not up
                         snake_next_dir = 2; // then switch down
                     break;
