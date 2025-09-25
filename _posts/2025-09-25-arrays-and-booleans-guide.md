@@ -15,11 +15,7 @@ comments: true
 
 Have you ever wanted to make a list of your favorite movies or keep track of whether you've finished your homework? In programming, we use **arrays** and **booleans** to do exactly that!
 
-<div style="float: right; margin: 0px 0px 10px 20px;">
-    <img src="{{site.baseurl}}/images/data-structures.png" alt="Data Structures" title="Arrays and Booleans Visualization" width="300">
-</div>
-
-In this guide, we'll learn about:
+This guide will cover:
 - **Arrays**: Lists that can hold multiple items
 - **Booleans**: Variables that are either true or false
 - **How to use them** in real programming examples
