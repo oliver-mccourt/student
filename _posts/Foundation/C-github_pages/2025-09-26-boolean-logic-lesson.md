@@ -84,22 +84,24 @@ Let's analyze the boolean logic in our calculator step by step:
 <div id="lesson-animation">
   <div class="calculator-container">
       <div class="calculator-output" id="lesson-output">0</div>
-      <div class="calculator-number">1</div>
-      <div class="calculator-number">2</div>
-      <div class="calculator-number">3</div>
-      <div class="calculator-operation">+</div>
-      <div class="calculator-number">4</div>
-      <div class="calculator-number">5</div>
-      <div class="calculator-number">6</div>
-      <div class="calculator-operation">-</div>
+      <div class="calculator-clear">A/C</div>
+      <div class="calculator-operation">÷</div>
+      <div class="calculator-operation">×</div>
+      <div class="calculator-operation">⌫</div>
       <div class="calculator-number">7</div>
       <div class="calculator-number">8</div>
       <div class="calculator-number">9</div>
-      <div class="calculator-operation">*</div>
-      <div class="calculator-clear">A/C</div>
-      <div class="calculator-number">0</div>
+      <div class="calculator-operation">-</div>
+      <div class="calculator-number">4</div>
+      <div class="calculator-number">5</div>
+      <div class="calculator-number">6</div>
+      <div class="calculator-operation">+</div>
+      <div class="calculator-number">1</div>
+      <div class="calculator-number">2</div>
+      <div class="calculator-number">3</div>
+      <div class="calculator-equals" style="grid-row: span 2;">=</div>
+      <div class="calculator-number" style="grid-column: span 2;">0</div>
       <div class="calculator-number">.</div>
-      <div class="calculator-equals">=</div>
   </div>
 </div>
 
@@ -380,96 +382,181 @@ Check off each item as you master it:
 *🎉 Congratulations! You've completed the Boolean Logic Lesson. Ready for the next challenge? Check out our [Advanced Programming Concepts](/advanced-programming-concepts) series!*
 
 <style>
+  /* Calculator Styling */
   .calculator-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 10px;
-    max-width: 300px;
+    grid-template-rows: auto repeat(5, 60px);
+    gap: 8px;
+    max-width: 320px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #333;
-    border-radius: 15px;
+    background: linear-gradient(145deg, #2c2c2c, #404040);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   }
   
   .calculator-output {
     grid-column: span 4;
-    grid-row: span 1;
-    border-radius: 10px;
-    padding: 0.25em;
-    font-size: 20px;
-    border: 5px solid black;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    border: 2px solid #555;
     display: flex;
     align-items: center;
-    background-color: #000;
-    color: #0f0;
+    background: linear-gradient(145deg, #1a1a1a, #000);
+    color: #00ff41;
     text-align: right;
     justify-content: flex-end;
+    min-height: 60px;
+    font-family: 'Courier New', monospace;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
   }
   
   .calculator-number, .calculator-operation, .calculator-clear, .calculator-equals {
-    border-radius: 10px;
-    padding: 20px;
-    margin: 5px;
-    font-size: 20px;
-    border: 3px solid black;
+    border-radius: 12px;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
     text-align: center;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    min-height: 50px;
   }
   
   .calculator-number {
-    background-color: #666;
+    background: linear-gradient(145deg, #4a4a4a, #666);
     color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
   
   .calculator-operation {
-    background-color: #ff9500;
+    background: linear-gradient(145deg, #ff9500, #cc7700);
     color: white;
+    box-shadow: 0 4px 8px rgba(255,149,0,0.3);
   }
   
   .calculator-clear {
-    background-color: #a6a6a6;
+    background: linear-gradient(145deg, #a6a6a6, #888);
     color: black;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
   
   .calculator-equals {
-    background-color: #ff9500;
+    background: linear-gradient(145deg, #ff9500, #cc7700);
     color: white;
+    box-shadow: 0 4px 8px rgba(255,149,0,0.3);
   }
   
   .calculator-number:hover, .calculator-operation:hover, .calculator-clear:hover, .calculator-equals:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
   }
   
+  .calculator-number:active, .calculator-operation:active, .calculator-clear:active, .calculator-equals:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  }
+  
+  /* Logic Analysis Styling */
   .logic-analysis {
     font-family: 'Courier New', monospace;
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .logic-analysis h4 {
+    color: #495057;
+    margin-bottom: 15px;
   }
   
   .logic-analysis span {
     font-weight: bold;
-    color: #007acc;
+    color: #007ACC;
     background-color: #f0f8ff;
-    padding: 2px 4px;
-    border-radius: 3px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    border: 1px solid #b3d9ff;
+  }
+  
+  /* Code Block Styling */
+  pre {
+    background-color: #1e1e1e !important;
+    color: #d4d4d4 !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    overflow-x: auto !important;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin: 16px 0 !important;
   }
   
   code {
-    background-color: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
+    background-color: #2d2d2d !important;
+    color: #e6db74 !important;
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    font-size: 90% !important;
+    border: 1px solid #444 !important;
+  }
+  
+  /* Inline code in paragraphs */
+  p code, li code, td code {
+    background-color: #2d2d2d !important;
+    color: #e6db74 !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+    font-size: 90% !important;
+    border: 1px solid #444 !important;
+  }
+  
+  /* Code blocks inside pre tags */
+  pre code {
+    background-color: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
   }
   
   .highlight-true {
     background-color: #d4edda !important;
     color: #155724 !important;
+    border: 1px solid #c3e6cb !important;
   }
   
   .highlight-false {
     background-color: #f8d7da !important;
     color: #721c24 !important;
+    border: 1px solid #f1b0b7 !important;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .calculator-container {
+      max-width: 280px;
+      padding: 15px;
+    }
+    
+    .calculator-output {
+      font-size: 24px;
+      padding: 12px;
+    }
+    
+    .calculator-number, .calculator-operation, .calculator-clear, .calculator-equals {
+      font-size: 16px;
+      min-height: 45px;
+    }
   }
 </style>
 
@@ -567,19 +654,34 @@ operations.forEach(button => {
 
 // Enhanced operation function
 function operation(choice) {
-    console.log(`Boolean check: firstNumber == null → ${firstNumber == null}`);
-    if (firstNumber == null) {
-        firstNumber = parseInt(output.innerHTML);
-        nextReady = true;
-        operator = choice;
-        console.log(`Stored first number: ${firstNumber}, operator: ${choice}`);
+    // Handle special operations
+    if (choice === "⌫") {
+        backspace();
         return;
     }
     
-    console.log("Calculating with existing number");
-    firstNumber = calculate(firstNumber, parseFloat(output.innerHTML)); 
-    operator = choice;
-    output.innerHTML = firstNumber.toString();
+    // Convert symbols to operators
+    let op = choice;
+    if (choice === "×") op = "*";
+    if (choice === "÷") op = "/";
+    
+    console.log(`Boolean check: firstNumber == null → ${firstNumber == null}`);
+    if (firstNumber == null) {
+        firstNumber = parseFloat(output.innerHTML);
+        nextReady = true;
+        operator = op;
+        console.log(`Stored first number: ${firstNumber}, operator: ${op}`);
+        return;
+    }
+    
+    // If we have a pending operation, calculate first
+    if (operator && !nextReady) {
+        console.log("Calculating with existing number");
+        firstNumber = calculate(firstNumber, parseFloat(output.innerHTML)); 
+        output.innerHTML = firstNumber.toString();
+    }
+    
+    operator = op;
     nextReady = true;
 }
 
@@ -613,6 +715,17 @@ function calculate(first, second) {
     return result;
 }
 
+// Backspace function
+function backspace() {
+    if (output.innerHTML.length > 1) {
+        output.innerHTML = output.innerHTML.slice(0, -1);
+    } else {
+        output.innerHTML = "0";
+        nextReady = true;
+    }
+    console.log("Backspace performed");
+}
+
 // Equals button listener
 equals.forEach(button => {
   button.addEventListener("click", function() {
@@ -623,10 +736,13 @@ equals.forEach(button => {
 
 // Equal action
 function equal() {
-    firstNumber = calculate(firstNumber, parseFloat(output.innerHTML));
-    output.innerHTML = firstNumber.toString();
-    nextReady = true;
-    console.log("Calculation completed");
+    if (firstNumber !== null && operator && !nextReady) {
+        firstNumber = calculate(firstNumber, parseFloat(output.innerHTML));
+        output.innerHTML = firstNumber.toString();
+        operator = null;
+        nextReady = true;
+        console.log("Calculation completed");
+    }
 }
 
 // Clear button listener
