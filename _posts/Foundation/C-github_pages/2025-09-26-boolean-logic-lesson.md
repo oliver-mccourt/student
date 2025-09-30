@@ -488,9 +488,9 @@ Check off each item as you master it:
   
   /* Code Block Styling */
   pre {
-    background-color: #1e1e1e !important;
-    color: #d4d4d4 !important;
-    border: 1px solid #333 !important;
+    background-color: #000000 !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #444 !important;
     border-radius: 8px !important;
     padding: 16px !important;
     overflow-x: auto !important;
@@ -498,26 +498,27 @@ Check off each item as you master it:
     font-size: 14px !important;
     line-height: 1.5 !important;
     margin: 16px 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
   }
   
   code {
-    background-color: #2d2d2d !important;
-    color: #e6db74 !important;
+    background-color: #000000 !important;
+    color: #00ff00 !important;
     padding: 3px 6px !important;
     border-radius: 4px !important;
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
     font-size: 90% !important;
-    border: 1px solid #444 !important;
+    border: 1px solid #333 !important;
   }
   
   /* Inline code in paragraphs */
   p code, li code, td code {
-    background-color: #2d2d2d !important;
-    color: #e6db74 !important;
+    background-color: #000000 !important;
+    color: #00ff00 !important;
     padding: 2px 5px !important;
     border-radius: 3px !important;
     font-size: 90% !important;
-    border: 1px solid #444 !important;
+    border: 1px solid #333 !important;
   }
   
   /* Code blocks inside pre tags */
