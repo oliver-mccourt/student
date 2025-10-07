@@ -3,8 +3,8 @@ description: "Class of 2026"
 owner_name: John Mortensen
 github_username: jm1021 
 github_repo: "oliver-mccourt" 
+url: "https://oliver-mccourt.github.io"
 baseurl: "/student" 
-theme: minima
 future: true
 remote_theme: jekyll/minima
 minima:
