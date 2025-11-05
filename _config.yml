@@ -1,12 +1,10 @@
 title: Open Coding 
 description: "Class of 2026"
-owner_name: John Mortensen
-github_username: jm1021 
+owner_name: Oliver McCourt
+github_username: oliver-mccourt 
 github_repo: "oliver-mccourt" 
 url: "https://oliver-mccourt.github.io"
-baseurl: "/student" 
-url: "https://oliver-mccourt.github.io"
-baseurl: "/student"
+baseurl: "/oliver-mccourt"
 future: true
 remote_theme: jekyll/minima
 minima:
