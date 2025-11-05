@@ -4,7 +4,7 @@ owner_name: Oliver McCourt
 github_username: oliver-mccourt 
 github_repo: "oliver-mccourt" 
 url: "https://oliver-mccourt.github.io"
-baseurl: "/oliver-mccourt"
+baseurl: "/student"
 future: true
 remote_theme: jekyll/minima
 minima:
